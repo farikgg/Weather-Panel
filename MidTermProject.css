@@ -1,0 +1,231 @@
+/* панель ввода */
+
+#control-panel {
+  position: absolute; 
+  top: 10px;
+  left: 10px;
+  display: flex; 
+  gap: 10px; 
+  color: #555;
+}
+
+#control-panel input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#control-panel button {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+/* стили для кнопки перевода */
+
+#language-select {
+  position:absolute; 
+  top: 10px;          
+  right: 115px;       
+  padding: 10px 20px; 
+  background-color: #007BFF;
+  color: #fff;        
+  border: none;        
+  border-radius: 5px; 
+  font-size: 16px;     
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+/* стили для информации о погоде */
+#weather-info {
+  display: grid;
+  grid-template-columns: repeat(5, 2fr);
+  gap: 20px;
+  padding: 20px;
+  width: 100%; 
+  box-sizing: border-box;
+  margin-top: 100px;
+}
+/* стили для карточек погоды */
+.weather-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.weather-card strong {
+  display: block; 
+  font-weight: bold;
+}
+
+.weather-card span {
+  display: block; 
+  margin-top: 5px; 
+}
+
+.weather-card:hover {
+  transform: scale(1.10);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+/* стили для избранных */
+.favorite-city-card {
+  border: 1px solid #ccc; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  padding: 16px; 
+  margin: 10px; 
+  width: 200px; 
+  text-align: center;
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.favorite-city-card h3 {
+  font-size: 1.2em; 
+  margin-bottom: 10px; 
+}
+
+.favorite-city-card p {
+  font-size: 1em;
+  margin: 5px 0; 
+}
+
+.favorite-city-card .remove-city-btn {
+  background-color: #ff4d4d;
+  color: white; 
+  border: none; 
+  border-radius: 5px; 
+  padding: 8px 12px; 
+  margin-top: 10px; 
+  font-size: 0.9em; 
+}
+
+.favorite-city-card .remove-city-btn:hover {
+  background-color: #e60000;
+}
+
+.favorite-city-card:hover {
+  transform: scale(1.10);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
+}
+
+#favorite-cities {
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 10px; 
+  justify-content: center; 
+  margin-top: 20px; 
+}
+
+/* стили для уведомлений */
+
+#notification-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 300px;
+}
+
+.notification {
+  border-radius: 5px;
+  padding: 15px;
+  margin: 10px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease;
+}
+
+.notification.info {
+  background-color: #007BFF;
+  color: white;
+}
+
+.notification.error {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+.notification.success {
+  background-color: #28a745;
+  color: white;
+}
+
+/* Основные переменные для светлой темы */
+:root {
+  --background-color-light: #ffffff;
+  --background-color-dark: #121212;
+  --text-color-light: #232323;
+  --text-color-dark: #ffffff;
+  --button-background-light: #007BFF;
+  --button-background-dark: #007BFF;
+  --card-background-light: #f9f9f9;
+  --card-background-dark: #333333;
+  --border-color-light: #ddd;
+  --border-color-dark: #d2d2d2;
+}
+
+/* Общие стили */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: var(--background-color-light); /* Фон светлой темы */
+  color: var(--text-color-light); /* Текст светлой темы */
+}
+
+/* Уведомления */
+.notification {
+  background-color: var(--card-background-light); /* Фон для уведомлений */
+  color: var(--text-color-light);
+}
+
+/* Карточки погоды */
+.weather-card {
+  background-color: var(--card-background-light);
+  border: 1px solid var(--border-color-light);
+  color: var(--text-color-light);
+}
+
+/* Карточки городов */
+.favorite-city-card {
+  background-color: var(--card-background-light);
+  border: 1px solid var(--border-color-light);
+  color: var(--text-color-light);
+}
+
+/* Темная тема */
+body.dark-theme {
+  background-color: var(--background-color-dark); /* Фон темной темы */
+  color: var(--text-color-dark); /* Текст темной темы */
+}
+
+body.dark-theme .notification {
+  background-color: var(--card-background-dark); /* Фон для уведомлений в темной теме */
+  color: var(--text-color-dark);
+}
+
+body.dark-theme .weather-card {
+  background-color: var(--card-background-dark);
+  border: 1px solid var(--border-color-dark);
+  color: var(--text-color-dark);
+}
+
+body.dark-theme .favorite-city-card {
+  background-color: var(--card-background-dark);
+  border: 1px solid var(--border-color-dark);
+  color: var(--text-color-dark);
+}
+
+body.dark-theme #control-panel input,
+body.dark-theme #control-panel button{
+  background-color: #333333;
+  color: white;
+}

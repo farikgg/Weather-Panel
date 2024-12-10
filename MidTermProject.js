@@ -24,7 +24,9 @@ const translations = {
     enter_city: 'Please enter a city',
     add_to_favorites: 'Add to Favorites',
     get_weather: 'Weather forecast',
-    remove_from_favorites: 'Delete'
+    remove_from_favorites: 'Delete',
+    add_only: `You can only add up to ${MAX_FAVORITE_CITIES} cities`,
+    city_already_in: 'City is already in favorites'
   },
   ru: {
     current_time: 'Текущее время',
@@ -41,9 +43,10 @@ const translations = {
     enter_city: 'Пожалуйста, введите город',
     add_to_favorites: 'Добавить в избранное',
     get_weather: 'Прогноз погоды',
-    remove_from_favorites: 'Удалить' 
+    remove_from_favorites: 'Удалить',
+    add_only: `Вы можете добавить максимум ${MAX_FAVORITE_CITIES} городов`,
+    city_already_in: 'Город уже добавлен'
   }
-};
 // Уведомления вместо alert
 function showNotification(message, type = 'info') {
   const notificationContainer = document.getElementById('notification-container');
@@ -147,12 +150,12 @@ const MAX_FAVORITE_CITIES = 10;
 // Добавляем город в избранное
 function addToFavorites(city, data) {
   if (favoriteCities.length >= MAX_FAVORITE_CITIES) {
-    showNotification(`You can only add up to ${MAX_FAVORITE_CITIES} cities.`, 'error');
+    showNotification(translate('add_only'), 'error');
     return;
   }
   const formattedCity = city.toLowerCase();
   if (favoriteCities.find(favCity => favCity.name.toLowerCase() === formattedCity)) {
-    showNotification('City is already in favorites.', 'error');
+    showNotification(translate('city_already_in'), 'error');
     return;
   }
 
@@ -207,7 +210,7 @@ function renderFavoriteCities() {
 // Обработка для кнопки "Добавить в избранное"
 addToFavoritesBtn.addEventListener('click', async () => {
   const city = cityInput.value.trim();
-  if (!city) return showNotification(`Add a city`, 'error');
+  if (!city) return showNotification(translate('enter_city'), 'error');
 
   try {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`);

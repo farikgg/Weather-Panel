@@ -25,7 +25,7 @@ const translations = {
     add_to_favorites: 'Add to Favorites',
     get_weather: 'Weather forecast',
     remove_from_favorites: 'Delete',
-    add_only: `You can only add up to ${MAX_FAVORITE_CITIES} cities`,
+    add_only: `You can only add up to 10 cities`,
     city_already_in: 'City is already in favorites'
   },
   ru: {
@@ -44,7 +44,7 @@ const translations = {
     add_to_favorites: 'Добавить в избранное',
     get_weather: 'Прогноз погоды',
     remove_from_favorites: 'Удалить',
-    add_only: `Вы можете добавить максимум ${MAX_FAVORITE_CITIES} городов`,
+    add_only: `Вы можете добавить максимум 10 городов`,
     city_already_in: 'Город уже добавлен'
   }
 };

@@ -47,6 +47,7 @@ const translations = {
     add_only: `Вы можете добавить максимум ${MAX_FAVORITE_CITIES} городов`,
     city_already_in: 'Город уже добавлен'
   }
+};
 // Уведомления вместо alert
 function showNotification(message, type = 'info') {
   const notificationContainer = document.getElementById('notification-container');
